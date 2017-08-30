@@ -26,12 +26,12 @@ function getQuery(name) {
                         console.log(campaigns[getQuery("campaign")].link !== null && getQuery("action") === "followLink")
                         console.log(campaigns[getQuery("campaign")] !== null && getQuery("action") === "unsubscribe")
     if (getQuery("campaign") === null || getQuery("campaign") === "" ) {
-        window.location.redirect = "/error/";//heh... this is bad code but whatever
+        window.location.href = "/error/";//heh... this is bad code but whatever
         
     } else if (campaigns[getQuery("campaign")].link !== null && getQuery("action") === "followLink") {
-            window.location.redirect = campaigns[getQuery("campaign")].link;
+            window.location.href = campaigns[getQuery("campaign")].link;
         } else if (campaigns[getQuery("campaign")] !== null && getQuery("action") === "unsubscribe") {
-            window.location.redirect = "/ubsubscribe/?campaign=" + getQuery("campaign");
+            window.location.href = "/ubsubscribe/?campaign=" + getQuery("campaign");
         }
     
 </script>
