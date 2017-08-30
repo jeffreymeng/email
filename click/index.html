@@ -21,7 +21,10 @@ function getQuery(name) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-                        
+                        console.log(getQuery("campaign"));
+                        console.log(getQuery("action"));
+                        console.log(campaigns[getQuery("campaign")].link !== null && getQuery("action") === "followLink")
+                        console.log(campaigns[getQuery("campaign")] !== null && getQuery("action") === "unsubscribe")
     if (getQuery("campaign") === null || getQuery("campaign") === "" ) {
         window.location.redirect = "/error/";//heh... this is bad code but whatever
         
