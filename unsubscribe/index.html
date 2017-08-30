@@ -1,5 +1,32 @@
-<form method="POST" action="http://formspree.io/YOUREMAILHERE">
+<style>
+    input[type="email"] {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+input[type="email"]:focus {
+  outline: none;
+}
+input[type="email"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+input[type="email"]:focus,
+input[type="email"].focus {
+  border: solid 5px #969696;
+}
+
+</style>
+<h1>Unsubscribe</h1>
+<form method="POST" action="http://formspree.io/jeffmeng7@gmail.com">
   <input type="email" name="email" placeholder="Your email">
-  <textarea name="message" placeholder="Your message"></textarea>
+  
   <button type="submit">Send</button>
 </form>
+<p>This may or may not work. You'll never know. You can always just shout at me to stop.</p>
