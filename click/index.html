@@ -1,0 +1,34 @@
+loading...
+<script>
+    //ill improve this later and use an actual database, but for now
+    //btw hi there
+    //stalker
+    
+    var campaigns = {
+        fihznc9zE8: {
+            link:"https://technostorms.jeffkmeng.com?campaign-source=email-fihznc9zE8"
+            
+        }
+    }
+    
+//http://stackoverflow.com/a/901144/5511561
+function getQuery(name) {
+    var  url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+                        
+    if (getQuery("campaign") === null || getQuery("campaign") === "" ) {
+        window.location.redirect = "/error/";//heh... this is bad code but whatever
+        
+    } else if (campaigns[getQuery("campaign")].link !== null && getQuery("action") === "followLink") {
+            window.location.redirect = campaigns[getQuery("campaign")].link;
+        } else if (campaigns[getQuery("campaign")] !== null && getQuery("action") === "unsubscribe") {
+            window.location.redirect = "/ubsubscribe/?campaign=" + getQuery("campaign");
+        }
+    
+</script>
