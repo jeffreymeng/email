@@ -1,7 +1,38 @@
 You have reached an outdated link. Redirecting you to new site...
 <noscript>
-    This site requires javascript to work. <a href="http://www.activatejavascript.org/">http://www.activatejavascript.org/</a>;
+    This site requires javascript to work. You can go to <a href="http://www.activatejavascript.org/">http://www.activatejavascript.org/</a> for instructions.
 </noscript>
+
 <script>
-    window.location.href = "https://click.email.jeffkmeng.com" + window.location.pathname+window.location.search+window.location.hash;
+    //ill improve this later and use an actual database, but for now
+    //btw hi there
+    //stalker
+    
+    var campaigns = {
+        fihznc9zE8: {
+            link:"https://techedit.jeffkmeng.com?campaign-source=email-fihznc9zE8"
+            
+        }
+    }
+    
+//http://stackoverflow.com/a/901144/5511561
+function getQuery(name) {
+    var  url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+                        
+    if (getQuery("campaign") === null || getQuery("campaign") === "" ) {
+        window.location.href = "/error/";//heh... this is bad code but whatever
+        
+    } else if (campaigns[getQuery("campaign")].link !== null && getQuery("action") === "followLink") {
+            window.location.href = campaigns[getQuery("campaign")].link;
+        } else if (campaigns[getQuery("campaign")] !== null && getQuery("action") === "unsubscribe") {
+            window.location.href = "/unsubscribe/?campaign=" + getQuery("campaign");
+        }
+    
 </script>
