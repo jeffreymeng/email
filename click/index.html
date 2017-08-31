@@ -35,7 +35,7 @@
     firebase.database().ref("/email/campaigns/").once("value").then(function(snapshot) {
         var campaigns = snapshot.val();
         if (campaigns[getQuery("campaign")].link !== null && getQuery("action") === "followLink") {
-            firebase.database().ref("/email/campaigns/clicks/follow/").set(campaigns.clicks.follow + 1).then(function() {
+            firebase.database().ref("/email/campaigns/" + getQuery("campaign") + "/clicks/follow/").set(campaigns[getQuery("campaign")].clicks.follow + 1).then(function() {
                 window.location.href = campaigns[getQuery("campaign")].link;
             });
 
