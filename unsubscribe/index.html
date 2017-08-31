@@ -60,7 +60,7 @@
         var campaign = getQuery("campaign") || "unknown";
         $("#submit").click(function() {
             $.ajax({
-                url: "http://formspree.io/" + atob("amVmZm1lbmc3QGdtYWlsLmNvbQ=="),
+                url: "https://formspree.io/" + atob("amVmZm1lbmc3QGdtYWlsLmNvbQ=="),
                 data: { email: $("#email").val(), campaign: campaign, _next: "https://email.jeffkmeng.com/unsubscribe/success.html", _replyto: $("#email").val() },
                 method: "POST",
                 dataType: "json"
