@@ -37,7 +37,7 @@
                 This site requires javascript to work. You can go to <a href="http://www.activatejavascript.org/">http://www.activatejavascript.org/</a> for instructions.
             </noscript>
 
-            <input type="email" class="form-control" name="email" placeholder="Your email">
+            <input type="email" class="form-control" name="email" placeholder="Your email" id="email">
             <button id="submit" class="btn btn-primary form-control">Unsubscribe</button>
 
         </div>
@@ -63,7 +63,10 @@
                 url: "https://formspree.io/" + atob("amVmZm1lbmc3QGdtYWlsLmNvbQ=="),
                 data: { email: $("#email").val(), campaign: campaign, _next: "https://email.jeffkmeng.com/unsubscribe/success.html", _replyto: $("#email").val() },
                 method: "POST",
-                dataType: "json"
+                dataType: "json",
+                success:function(){
+                    window.location.href = "success.html";
+                }
             });
         });
     </script>
